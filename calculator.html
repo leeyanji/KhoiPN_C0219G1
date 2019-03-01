@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function calcu(val) {
+        document.getElementById("res").value += val;
+    }
+    function tinh() {
+        document.getElementById("res").value = eval(document.getElementById("res").value);
+    }
+    function c() {
+        document.getElementById("res").value = '';
+    }
+</script>
+<form>
+    <input type="text" id="res" style="width: 208px; height: 30px"><br><br>
+    <input type="button" value="7" onclick="calcu('7')" style="height: 50px; width: 50px">
+    <input type="button" value="8" onclick="calcu('8')" style="height: 50px; width: 50px">
+    <input type="button" value="9" onclick="calcu('9')" style="height: 50px; width: 50px">
+    <input type="button" value="+" onclick="calcu('+')" style="height: 50px; width: 50px"><br>
+    <input type="button" value="4" onclick="calcu('4')" style="height: 50px; width: 50px">
+    <input type="button" value="5" onclick="calcu('5')" style="height: 50px; width: 50px">
+    <input type="button" value="6" onclick="calcu('6')" style="height: 50px; width: 50px">
+    <input type="button" value="-" onclick="calcu('-')" style="height: 50px; width: 50px"><br>
+    <input type="button" value="1" onclick="calcu('1')" style="height: 50px; width: 50px">
+    <input type="button" value="2" onclick="calcu('2')" style="height: 50px; width: 50px">
+    <input type="button" value="3" onclick="calcu('3')" style="height: 50px; width: 50px">
+    <input type="button" value="*" onclick="calcu('*')" style="height: 50px; width: 50px"><br>
+    <input type="button" value="0" onclick="calcu('0')" style="height: 50px; width: 50px">
+    <input type="button" value="C" onclick="c()" style="height: 50px; width: 50px">
+    <input type="button" value="=" onclick="tinh()" style="height: 50px; width: 50px">
+    <input type="button" value="/" onclick="calcu('/')" style="height: 50px; width: 50px"><br>
+</form>
+
+</body>
+</html>

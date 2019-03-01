@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dang nhap</title>
+</head>
+<body>
+<script>
+    var user = prompt('Nhap user','');
+    if(user == "Admin"){
+        var pass = prompt('Nhap pass','');
+        if(pass == "TheMaster"){
+            alert("Welcome");
+        }else if(pass == null){
+            alert("Cancel");
+        }else {
+            alert("Wrong password");
+        }
+    }else if (user == null){
+        alert("Cancel");
+    }else {
+        alert("I don’t know you");
+    }
+
+
+</script>
+</body>
+</html>

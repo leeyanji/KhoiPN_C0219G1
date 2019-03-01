@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen doi ti gia</title>
+</head>
+<body>
+<script>
+    function doitigia(){
+        var number = document.getElementById("number").value;
+        var tigia1 = document.getElementById("tigia1").value;
+        var tigia2 = document.getElementById("tigia2").value;
+        if (tigia1 == tigia2){
+            alert("Vui lòng chọn 2 loại tiền tệ khác nhau");
+        }else if (tigia1 == "USD"){
+                document.getElementById("ketqua").innerText =number + tigia1 + "=" + number*23000 +tigia2;
+            }else{
+                document.getElementById("ketqua").innerText = number + tigia1 + "=" + number/23000 +tigia2;
+        };
+
+    }
+
+</script>
+    <form>
+        <b>AMOUNT</b>
+        <input type="number" name="number" id="number">
+        <b>From Currency</b>
+        <select name="tigia1" id="tigia1">
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+        </select>
+        <b>To Currency</b>
+        <select name="tigia2" id="tigia2">
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
+        </select>
+        <button type="button" onclick="doitigia()">CONVERT</button>
+        <p id ="ketqua"></p>
+    </form>
+</body>
+
+</html>

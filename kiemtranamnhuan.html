@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra nam nhuan</title>
+</head>
+<body>
+<script>
+    var year = parseInt(prompt("Vui long nhap nam"));
+    if (year % 4 == 0){
+        if (year % 100 != 0){
+            alert(year + "la nam nhuan");
+        }else {
+            if (year % 400 == 0) alert(year + "la nam nhuan");
+            else alert(year + "ko phai nam nhuan");
+         }
+    }else alert(year + "ko phai nam nhuan");
+</script>
+</body>
+</html>

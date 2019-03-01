@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle</title>
+</head>
+<body>
+<img src='cat_1.jpg' alt="wd" id="img1" onclick="doi()">
+<!--<img src="cat_2.jpg" alt="" id="img2">-->
+<script>
+    const linkimg = ['cat_1.jpg','cat_2.jpg','c'];
+
+    function getRandom(arr){
+       var randomNumber = Math.floor( Math.random() * arr.length);
+       img = arr[randomNumber];
+       changeimg = document.getElementById('img');
+       changeimg.src = img;
+    }
+    getRandom(linkimg);
+    function doi() {
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nobita</title>
+</head>
+<body>
+<script>
+    function up() {
+        var element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) - 10 + 'px';
+    }
+    function down() {
+        var element = document.getElementById("nobita")
+        element.style.top = parseInt(element.style.top) + 10 + 'px';
+    }
+    function left() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 10 + 'px';
+    }
+    function right() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 10 + 'px';
+    }
+    function click(evt) {
+        switch (evt.keyCode) {
+            case 37: left();break;
+            case 39: right();break;
+            case 38: up();break;
+            case 40: down();break;
+        }
+        
+    }
+    function run() {
+        window.addEventListener('keydown',click);
+    }
+</script>
+<img id="nobita" src="https://james.codegym.vn/pluginfile.php/10805/mod_assign/intro/1.png" style="position:absolute;left:0; top:0;" height="100" width="100" onload="run()"/>
+
+</body>
+</html>

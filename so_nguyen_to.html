@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>So nguyen to</title>
+</head>
+<body>
+	<script>
+		
+		function checksnt(n){
+			//alert(n);
+			if( n < 2) return false;
+     		if(n == 2 || n == 3) return true;
+			for(let i = 2; i <= Math.sqrt(n); i++){
+				if(n % i == 0) return false;
+			}
+			return true;
+		}
+		var num = parseInt(prompt('Nhap vao so luong nguyen to can in ra: ',''));
+		// var count = 0;
+		// var i = 2;
+		// while(count < num){
+		// 	if(checksnt(i)){
+		// 		document.write(i);
+		// 		document.write('<br>');
+		// 		count++;
+		// 	}
+		// 	i++;
+		// }
+		for(i = 2, count = 0; count < num; i++){
+
+			if(checksnt(i)){
+				document.write(i);
+				document.write("<br>");
+				count++;
+			}
+		}
+	</script>
+</body>
+</html>

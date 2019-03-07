@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Random number</title>
+</head>
+<body>
+	<script>
+		function random(min,max){
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		function play(){
+			let a = parseInt(prompt('Random from:',''));
+			let b = parseInt(prompt('Random to: ',''));
+			ran = random(a,b);
+			
+			for(i = 0; i < 3;){
+				let res = prompt('Moi ban chon lan ' + (i+1) +':','');
+				if(res == ran){
+					alert('Win');
+					break;
+				}else if(res < ran){
+					alert('So ban nhap nho hon random');
+					i++;
+				}else if(res > ran){
+					alert('So ban nhap lon hon random');
+					i++;
+				}
+			}
+		}
+	</script>
+	<button type="button" onclick="play()">Play</button>
+</body>
+</html>

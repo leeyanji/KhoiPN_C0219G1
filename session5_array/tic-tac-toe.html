@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+	
+    <div style="width: 90px">
+    	<h4>Tic Tac Toe</h4>
+    	<b id="carogame"></b><br>
+    	<hr>
+    	<input type="number" id="pX" value="" placeholder="x" style="width: 35px">
+    	<input type="number" id="pY" value="" placeholder="y" style="width: 35px">
+    	<br>
+    	<input type="button" value="Change Value" onclick="changeValue()">
+    </div>
+    <script>
+		var arr = [];
+		let data = "";
+		for(let i = 0; i<3; i++){
+			arr[i] = new Array("+","+","+");
+		}
+		for(let i = 0; i < 3; i++){
+			data += "<br>";
+
+			for(let j = 0; j < 3; j++){
+				data += arr[i][j] + "&nbsp;&nbsp;&nbsp;"; 
+			}
+		}
+		document.getElementById("carogame").innerHTML = data;
+		for(x = 0; x < 9; x++){
+			function changeValue(){
+				let pX = document.getElementById("pX").value;
+				let pY = document.getElementById("pY").value;
+				if(arr[pX][pY] != "X" && arr[pX][pY] != "O" ){
+					if(x % 2 == 0){
+						arr[pX][pY] = "X";
+						x++;
+					} else {
+						arr[pX][pY] = "O";
+						x++;
+					}
+				}
+					let data = "";
+					for(let i = 0; i < 3; i++){
+						data += "<br>";
+							for(let j = 0; j < 3; j++){
+							data += arr[i][j] + "&nbsp;&nbsp;&nbsp;"; 
+					}
+				}
+				document.getElementById("carogame").innerHTML = data;
+				checkWin();
+				}
+		}
+
+		function checkWin(){
+			if(arr[0][0] != "+" && arr[0][0]===arr[0][1] && arr[0][0] === arr[0][2]){
+				alert(arr[0][0] + " " +"win");
+			}else if(arr[1][0] != "+" && arr[1][0]===arr[1][1] && arr[1][0]===arr[1][2]){
+				alert(arr[1][0]+" " +"win");
+			}else if(arr[2][0] != "+" && arr[2][0]===arr[2][1] && arr[2][0]===arr[2][2]){
+				alert(arr[2][0]+" " +"win");
+			}else if(arr[0][0] != "+" && arr[0][0]===arr[1][0] && arr[0][0]===arr[2][0]){
+				alert(arr[0][0]+" " +"win");
+			}else if(arr[0][1] != "+" && arr[0][1]===arr[1][1] && arr[0][1]===arr[2][1]){
+				alert(arr[0][1]+" " +"win");
+			}else if(arr[0][2] != "+" && arr[0][2]===arr[1][2] && arr[0][2]===arr[2][2]){
+				alert(arr[0][2]+" " +"win");
+			}else if(arr[0][0] != "+" && arr[0][0]===arr[1][1] && arr[0][0]===arr[2][2]){
+				alert(arr[0][0]+" " +"win");
+			}else if(arr[0][2] != "+" && arr[0][2]===arr[1][1] && arr[0][2]===arr[2][0]){
+				alert(arr[0][2]+" " +"win");
+			}
+		}
+	</script>
+</body>
+
+</html>

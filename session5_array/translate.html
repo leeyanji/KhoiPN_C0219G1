@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Translate</title>
+</head>
+<body>
+	<input type="text" id="trans" value="" placeholder="Nhap tu can chuyen">
+	<button type="button" onclick="doi()">Translate</button>
+	<input type="text" disabled id="val" value="" placeholder="Nhap tu can chuyen">
+	<script>
+		var en = ["hello","bye","good morning","good night"];
+		var vi = ["xin chao","tam biet","chao buoi sang","chao buoi toi"];
+		function doi() {
+			var trans = document.getElementById("trans").value;
+			for(let i = 0; i < en.length; i++){
+			if(trans === en[i]){
+				document.getElementById("val").value = vi[i];
+				}
+			}
+			if(document.getElementById("val").value === ""){
+				alert("Tu ban nhap chua co trong tu dien");
+			}
+		}
+
+	</script>
+</body>
+</html>

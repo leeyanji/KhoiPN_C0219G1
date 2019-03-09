@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Game Caro</title>
+	<style>
+		*{ box-sizing: border-box; }
+		.container{width: 300px; overflow: hidden; margin: 50px auto 0 auto;}
+		.container .box {
+			float: left; width: 50px; height: 50px; border: 1px solid #000; transition: all .25s ease-in-out;
+			text-align: center; font-size: 30px
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="carogame"></div>
+	</div>
+	<script>
+		const row = 6; 
+		var data = "";
+		for(i = 0; i < row; i++){
+			// data += "<br/><br/>";
+			for(j = 0; j < row; j++){
+				data += '	<div class="box" id="box'+i+j+'">@</div>';
+			}
+		}
+		document.getElementById("carogame").innerHTML = data;
+	</script>
+</body>
+</html>

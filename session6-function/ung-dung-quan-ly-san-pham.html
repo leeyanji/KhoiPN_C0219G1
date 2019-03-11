@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quản lý sản phẩm</title>
+</head>
+<body>
+	<h3>Thêm sản phẩm</h3>
+	<input type="text" id="add"><button type="button" onclick="addProduct()">Thêm mới</button>
+	<hr>
+	<h3>Danh sách sản phẩm</h3>
+	<div id="list"></div>
+	<script>
+		var product = ["Apple","Samsung","Xiaomi","Asus","Lenovo"];
+		window.addEventListener('load',display(product));
+
+		function addProduct() {
+			let inp = document.getElementById("add").value;
+			product[product.length] = inp;
+			alert("Bạn đã thêm "+ inp);
+			display(product);
+		}
+		function display (arr) {
+			data = '';
+			for(i = 0; i < arr.length; i++){
+			 	data += '<tr>';
+                data += '<td>' + arr[i] + '</td>';
+                data += '<td><button onclick="edit(' + i + ')">Edit</button></td>';
+                data += '<td><button onclick="del('+ i + ')">Delete</button></td>';
+                data += '</tr><br>';
+			 }
+			document.getElementById("list").innerHTML = data;
+		}
+		function del (id) {
+			product.splice(id,1);
+			display(product);
+		}
+		function edit (id) {
+			let edit = prompt();
+			product[id] = edit;
+			display(product);
+		}
+	</script>
+</body>
+</html>

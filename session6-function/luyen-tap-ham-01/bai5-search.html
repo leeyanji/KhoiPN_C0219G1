@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search</title>
+</head>
+<body>
+	<script>
+		var inp = prompt('Nhap ten star can check chom sao:');
+		
+		var ten = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
+		var star = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+		checkChomSao(inp,ten);
+		function checkChomSao(inp) {
+			for(let i = 0; i < ten.length; i++){
+				if(inp == ten[i]){
+					alert(star[i]); 
+					break;
+				} else {
+					alert("Khong tim thay ten ngoi sao nao");
+					break;
+				}
+			}
+		}
+
+		
+
+
+	</script>
+</body>
+</html>

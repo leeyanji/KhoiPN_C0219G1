@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Game Caro</title>
+	<style>
+		*{ box-sizing: border-box; }
+		.container{width: 450px; overflow: hidden; margin: 50px auto 0 auto;}
+		.container .box {
+			float: left; width: 30px; height: 30px; border: 1px solid #000; transition: all .25s ease-in-out;
+			text-align: center; font-size: 25px; background: #3431;
+		}
+		.container .box:hover{ background: pink;}
+		.container span{ background: orange; color:#fff; width:100%;height: 40px; font-size: 30px; display: block; text-align: center;}
+
+		button{
+			background: #26C281; color:#fff; width:200px;height: 40px; font-size: 25px; display: block; margin:20px auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<span id="noti">Sẵn sàng!!!</span>
+		<p id="carogame"></p>
+		<button type="button" onclick="resetGame()">Chơi lại</button>
+	</div>
+	<script>
+		const row = 15;
+		
+
+		var data = "";
+		for(i = 0; i < row; i++){
+			for(j = 0; j < row; j++){
+				data += '	<div class="box" name="box" id="box'+i+'_'+j+'" onclick="chon(this.id)"></div>';
+			}
+		}
+		document.getElementById("carogame").innerHTML = data;
+		var x_o = 0;
+		function chon(id) {
+			
+			for(var i = 0; i < row*row; i++){
+					let a = document.getElementById(id).innerHTML
+				if(a != "X" && a != "O"){
+					if(x_o % 2 === 0){
+					document.getElementById(id).innerHTML = "X";
+					x_o++;
+					document.getElementById("noti").innerHTML = "Đến lượt đội O";
+					checkWin();
+					break;
+				} else {
+					document.getElementById(id).innerHTML = "O";
+					x_o++;
+					document.getElementById("noti").innerHTML = "Đến lượt đội X";
+					checkWin();
+					break;
+				}
+				}
+			}
+			
+		}
+
+		function resetGame(){
+			for(i = 0; i < row; i++){
+				for(j = 0; j < row; j++){
+					document.getElementById("box"+i+"_"+j).innerHTML = "" 
+				}
+			}
+			document.getElementById("noti").innerHTML = "Sẵn sàng!!!";
+		}
+
+		function checkWin(){
+			for(i = 0; i < row; i++){
+				for(j = 0; j < row; j++){
+
+					//check ngang
+					if(j <= 5){
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !="" 
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j+1)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j+2)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j+3)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j+4)).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					} else{
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !="" 
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j-1)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j-2)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j-3)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+i+"_"+(j-4)).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					}
+						
+
+					//check doc
+					if(i<=5){
+
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !=""
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+1)+"_"+j).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+2)+"_"+j).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+3)+"_"+j).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+4)+"_"+j).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					} else {
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !=""
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-1)+"_"+j).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-2)+"_"+j).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-3)+"_"+j).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-4)+"_"+j).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					}
+
+					//check cheo sang phai
+					if(i<=(row-5) && j<=(row-5)){
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !=""
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+1)+"_"+(j+1)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+2)+"_"+(j+2)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+3)+"_"+(j+3)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+4)+"_"+(j+4)).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					} else if(i>=5&&j>=5){
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !=""
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-1)+"_"+(j-1)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-2)+"_"+(j-2)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-3)+"_"+(j-3)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-4)+"_"+(j-4)).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+							}
+						}
+
+					//check cheo trai
+					if(i>=5 && j<=(row-5)){
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !=""
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-1)+"_"+(j+1)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-2)+"_"+(j+2)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-3)+"_"+(j+3)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i-4)+"_"+(j+4)).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					} else if(i<=(row-5) && j>=5){
+						if(
+							document.getElementById("box"+i+"_"+j).innerHTML !=""
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+1)+"_"+(j-1)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+2)+"_"+(j-2)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+3)+"_"+(j-3)).innerHTML
+							&& document.getElementById("box"+i+"_"+j).innerHTML===document.getElementById("box"+(i+4)+"_"+(j-4)).innerHTML
+							){
+							alert( "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng");
+							document.getElementById("noti").innerHTML = "Đội "+document.getElementById("box"+i+"_"+j).innerHTML + " thắng";break;
+						}
+					}
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>

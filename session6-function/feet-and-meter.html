@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chuyen doi don vi</title>
+</head>
+<body>
+	<input type="number" id="num" value="" placeholder="">
+	<select id="sele">
+		<option value="feet">Feet -> Meter</option>
+		<option value="meter">Meter -> Feet</option>
+	</select>
+	<button type="button" onclick="chuyen()">Chuyen doi</button>
+	<span id="res"></span>
+	<script>
+		function chuyen(){
+		select = document.getElementById("sele").value
+		if(select == "feet"){
+			res = feetToMeter(document.getElementById("num").value);
+			document.getElementById("res").innerHTML = "Ket qua la: " + res;
+			}else{
+				res = meterToFeet(document.getElementById("num").value);
+				document.getElementById("res").innerHTML = "Ket qua la: " + res;
+			}
+		} 
+		function feetToMeter(feet){
+			result = 0.305 * feet;
+			return result;
+		}
+		function meterToFeet(meter){
+			result = 3.279 * meter;
+			return result;
+		}
+	</script>
+</body>
+</html>

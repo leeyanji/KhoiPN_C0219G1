@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tim so nho nhat</title>
+</head>
+<body>
+	<script>
+		num1 = prompt('Nhap so thu nhat','');
+		num2 = prompt('Nhap so thu hai','');
+		num3 = prompt('Nhap so thu ba','');
+		alert("So nho nhat la: " +timMin(num1,num2,num3));
+		function timMin (num1,num2,num3) {
+			let min = num1;
+			if( min > num2){
+				min = num2;
+			}
+			if(min > num3){
+				min = num3;
+			}
+			return min;
+		}
+	</script>
+</body>
+</html>

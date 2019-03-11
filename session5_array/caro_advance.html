@@ -5,28 +5,90 @@
 	<title>Game Caro</title>
 	<style>
 		*{ box-sizing: border-box; }
-		.container{width: 300px; overflow: hidden; margin: 50px auto 0 auto;}
+		.container{width: 450px; overflow: hidden; margin: 50px auto 0 auto;}
 		.container .box {
 			float: left; width: 50px; height: 50px; border: 1px solid #000; transition: all .25s ease-in-out;
-			text-align: center; font-size: 30px
+			text-align: center; font-size: 45px; background: #3431;
 		}
+		.container .box:hover{background: red;}
 
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div id="carogame"></div>
+		<p id="carogame"></p>
 	</div>
 	<script>
-		const row = 6; 
+		const row = 9; 
+
 		var data = "";
 		for(i = 0; i < row; i++){
-			// data += "<br/><br/>";
 			for(j = 0; j < row; j++){
-				data += '	<div class="box" id="box'+i+j+'">@</div>';
+				data += '	<div class="box" id="box'+i+j+'" onclick="chon(this.id)"></div>';
 			}
 		}
 		document.getElementById("carogame").innerHTML = data;
+		var x_o = 0;
+		function chon(id) {
+			
+			for(var i = 0; i < row*row; i++){
+					let a = document.getElementById(id).innerHTML
+				if(a != "X" && a != "O"){
+					if(x_o % 2 === 0){
+					document.getElementById(id).innerHTML = "X";
+					x_o++;
+					checkWin();
+					break;
+				} else {
+					document.getElementById(id).innerHTML = "O";
+					x_o++;
+					checkWin();
+					break;
+				}
+				}
+			}
+			
+		}
+		function checkWin(){
+			for(i = 0; i < row; i++){
+				for(j = 0; j < row; j++){
+						if(
+							document.getElementById("box"+i+j).innerHTML !="" 
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+i+(j+1)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+i+(j+2)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+i+(j+3)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+i+(j+4)).innerHTML
+							){
+							alert("a");break;
+						} else if(
+							document.getElementById("box"+i+j).innerHTML !=""
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+1)+j).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+2)+j).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+3)+j).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+4)+j).innerHTML
+							){
+							alert("a");break;
+						} else if(
+							document.getElementById("box"+i+j).innerHTML !=""
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+1)+(j+1)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+2)+(j+2)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+3)+(j+3)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i+4)+(j+4)).innerHTML
+							){
+							alert("a");break;
+						} else if(
+							document.getElementById("box"+i+j).innerHTML !=""
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i-1)+(j+1)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i-2)+(j+2)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i-3)+(j+3)).innerHTML
+							&& document.getElementById("box"+i+j).innerHTML===document.getElementById("box"+(i-4)+(j+4)).innerHTML
+							){
+							alert("a");break;
+						}
+				}
+			}
+		}
+		
 	</script>
 </body>
 </html>

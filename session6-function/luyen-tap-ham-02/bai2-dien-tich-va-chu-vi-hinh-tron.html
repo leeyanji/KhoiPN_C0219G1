@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tinh chu vi va dien tich hinh tron</title>
+</head>
+<body>
+
+	<script>
+		var r = prompt('Nhap vao ban kinh','');
+		alert("Chu vi cua hinh tron la: " + tinhChuVi(r));
+		alert("Dien tich cua hinh tron la: " + tinhDienTich(r));
+		function tinhDienTich (r) {
+			S = (r * r) * 3.14;
+			return S;
+		}
+		function tinhChuVi (r) {
+			C = 2 * r * 3.14;
+			return C;
+		}
+	</script>
+</body>
+</html>

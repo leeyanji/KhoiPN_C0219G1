@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Check so</title>
+</head>
+<body>
+	<input type="text" id="num" value="" placeholder="">
+	<button type="button" onclick="checkSo()">Check</button>
+	<script>
+		function checkSo (num) {
+			var num = document.getElementById("num").value;
+			if(Number(num)){
+				return true;
+			} else {
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

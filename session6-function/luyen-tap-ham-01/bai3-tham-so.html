@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		var num1 = parseInt(prompt('Nhap tham so thu nhat',''));
+		var num2 = parseInt(prompt('Nhap tham so thu hai',''));
+		check(num1,num2);
+		function check(num1,num2) {
+			if(num1 > num2){
+				alert("Tham so thu nhat lon hon tham so thu hai");
+			} else if (num1 <= num2) {
+				result = num1 + num2;
+				alert("Tong cua 2 tham so la: " + result);
+			}
+		}
+	</script>
+</body>
+</html>

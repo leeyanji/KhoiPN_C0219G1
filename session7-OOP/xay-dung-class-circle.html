@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Xay dung class cricle</title>
+</head>
+<body>
+	<script>
+		let MyCircle = function(radius){
+			this.radius = radius;
+			this.getRadius = function(){
+				return this.radius;
+			}
+			this.getArea = function(){
+				return Math.PI * radius * radius;
+			}
+		}
+		let cricle = new MyCircle(3);
+		alert(cricle.getRadius());
+		alert(cricle.getArea());
+
+	</script>
+</body>
+</html>

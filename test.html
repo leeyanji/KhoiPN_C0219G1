@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="inp" value="" placeholder="">
+	<button type="button" onclick="add()">Add</button>
+	<script>
+		var arr = [];
+		var inp = document.getElementById('inp').value;
+		function add() {
+			arr[arr.length] = inp;
+			if(inp % 15 === 0){
+				alert('fizzbuzz');
+			} else if (inp % 5 === 0){
+				alert('buzz');
+			} else if (inp % 3 === 0) {
+				alert('fizz');
+			} 
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Temperature</title>
+</head>
+<body>
+	<script>
+		function Temperature(doC){
+			this.doC = doC;
+			this.getdoF = function () {
+				return doC * 1.8 + 32;
+			}
+			this.getdoK = function () {
+				return doC + 273.15;
+			}
+
+		}
+		function createTemperature(){
+			var doC = parseInt(prompt("Vui long nhap do C"));
+			var temperature = new Temperature(doC);
+			alert("Chuyen sang do F bang: " + temperature.getdoF());
+			alert("Chuyen sang do K bang: " + temperature.getdoK());
+		}
+		createTemperature();
+	</script>
+</body>
+</html>

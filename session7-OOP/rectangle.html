@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Retangle</title>
+</head>
+<body>
+	<p id="a"></p>
+	<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+	<script>
+		function Retangle (chieudai,chieurong) {
+			this.chieudai = chieudai;
+			this.chieurong = chieurong;
+			this.setchieudai = function (chieudai) {
+				this.chieudai = chieudai;
+			}
+			this.setchieurong = function (chieurong) {
+				this.chieurong = chieurong;
+			}
+			this.getArea = function () {
+				return chieudai * chieurong;
+			}
+			this.getRerimeter = function () {
+				return (chieudai + chieurong) * 2;
+			}
+		
+		}
+		function createRetangle (chieudai,chieurong){
+			var retangle = new Retangle(chieudai,chieurong);
+			var c = document.getElementById("myCanvas");
+			console.log(c);
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0,0,retangle.chieudai,retangle.chieurong);
+            var data = "";
+            data += "Dien tich: " + retangle.getArea();
+            data += "Chu vi: " + retangle.getRerimeter();
+            alert(data);
+             document.getElementById("a").innerHTML = data;
+
+		}
+		function display(){
+			var chieudai = parseInt(prompt('Nhap chieu dai'));
+			var chieurong = parseInt(prompt('Nhap chieu ronng'));
+			createRetangle(chieudai,chieurong);
+		}
+		display();
+	</script>
+</body>
+</html>

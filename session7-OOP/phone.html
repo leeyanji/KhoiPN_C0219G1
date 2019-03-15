@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Phone</title>
+</head>
+<body>
+	<script>
+		function Phone(phonename,battery){
+			this.phonename = phonename;
+			this.battery = battery;
+			this.status = false;
+			this.receivedMessage = [];
+			this.sentMessage = [];
+			this.message = "";
+
+			this.checkStatus = function(){
+				if(this.status) 
+					return true;
+				return false;
+				alert(this.status);
+
+			}
+
+			this.turnOn_Off = function () {
+				if(this.checkBattery()){
+					if(this.status == false){
+						alert('Phone turn on');
+					     this.status = true;
+				    } else{
+				    	alert("Phone turn off");
+					     this.status = false;
+				}
+				}
+			}
+			this.charge = function () {
+				/* body... */
+			}
+			this.writeMessage = function (message) {
+				//kiem tra pin
+				//
+				//neu pin con thi thuc hien soan tin thi soan tin
+				if(this.checkStatus()){
+				    this.message = message;	
+				    this.decreaseBattaery()
+				}
+
+				//goi ham tru pin khi su dung
+			}
+			this.sendMessage = function (receiver) {
+				/* body... */
+                if(this.checkStatus()){
+				    receiver.receivedMessage.push(this.message);
+				    // console.log(receiver.receivedMessage);
+				    this.sentMessage.push(this.message);
+				    // console.log(this.sentMessage);
+				    this.decreaseBattaery()
+				}
+
+			}
+			this.displaySentMessage = function () {
+				if(this.checkStatus()){
+				    var data = "";
+				    for(i =0 ; i < this.sentMessage.length; i++){
+					    data += this.sentMessage[i] + "<br>";
+				     }
+				    return data;
+				    this.decreaseBattaery()
+			    }
+
+			}
+			this.displayReceivedMessage = function () {
+				if(this.checkStatus()){
+				    var data = "";
+				    for(i = 0 ; i < this.receivedMessage.length; i++){
+				    	data += this.receivedMessage[i] + "<br>";
+				    }
+				    return data;
+				    this.decreaseBattaery()
+				}
+			}
+			this.checkBattery = function () {
+				if(this.battery > 0) return true;
+				return false;
+			}
+			this.decreaseBattaery = function(){
+				if(this.battery > 0){
+					this.battery--;
+				}
+			}
+		}
+		function main(){
+			var nokia = new Phone("nokia",99);
+			var iphone = new Phone("iphone",99);
+			nokia.turnOn_Off();
+			iphone.turnOn_Off();
+            nokia.writeMessage("day la mess");
+			nokia.sendMessage(iphone);
+			console.log(iphone.displayReceivedMessage());
+		}
+		main();
+	</script>
+</body>
+</html>

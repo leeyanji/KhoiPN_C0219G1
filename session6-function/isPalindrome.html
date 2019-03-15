@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Palindrome</title>
+</head>
+<body>
+	<script>
+		var str = prompt('');
+		
+		alert(isPalindrome(str));
+		function isPalindrome (str) {
+			var a = (str.length % 2 == 0)? str.length / 2 : (str.length-1)/2;
+			var temp = false;
+			// alert(a);
+			for( i = 0; i < a; i++){
+				if(str[i] === str[str.length-(i+1)]){
+					temp = true;
+				} else {
+					temp = false;
+				}
+			}
+			return temp;
+		}
+		
+	</script>
+</body>
+</html>

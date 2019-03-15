@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let log = console.log
+		let i = 0;
+		function getAutoIncrementId () {
+			return i++;
+		}
+		function Student (name, age) {
+			let id = getAutoIncrementId();
+			this.name = name;
+			this.age = age;
+			this.getId = function () {
+				return id;
+			}
+			this.getName = function () {
+				return this.name;
+			}
+			this.getAge = function () {
+				return this.age;
+			}
+		}
+
+		let student1 = new Student("sdsds", 0);
+		let student2 = new Student("ssffsdsds", 0);
+
+		let name1 = student1.getName();
+		let age1 = student1.getAge();
+		console.log(name1);
+		console.log(age1);
+	</script>
+</body>
+</html>

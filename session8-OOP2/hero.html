@@ -43,7 +43,7 @@
 				document.getElementById('game').innerHTML = hero.getHeroElement();
 				// setTimeout(start,10);
 			}
-			if (hero.x > 0 && hero.y == window.innerHeight - hero.size) {
+			if (hero.x > 0 && hero.y > window.innerHeight - hero.size) {
 				hero.moveLeft();
 				document.getElementById('game').innerHTML = hero.getHeroElement();
 				// setTimeout(start,10);

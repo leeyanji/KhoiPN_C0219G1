@@ -25,10 +25,10 @@
 			this.turnOn_Off = function () {
 				if(this.checkBattery()){
 					if(this.status == false){
-						alert('Phone turn on');
+						alert(this.phonename + 'Phone turn on');
 					     this.status = true;
 				    } else{
-				    	alert("Phone turn off");
+				    	alert(this.phonename + "Phone turn off");
 					     this.status = false;
 				}
 				}
@@ -94,7 +94,7 @@
 			var iphone = new Phone("iphone",99);
 			nokia.turnOn_Off();
 			iphone.turnOn_Off();
-            nokia.writeMessage("day la mess");
+            nokia.writeMessage("sdfgdhsythsy");
 			nokia.sendMessage(iphone);
 			console.log(iphone.displayReceivedMessage());
 		}

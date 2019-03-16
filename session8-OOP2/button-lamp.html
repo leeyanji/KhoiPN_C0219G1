@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SwitchButton and Lamp</title>
+</head>
+<body>
+	<div id="status"></div>
+	<script>
+		function Lamp () {
+			this.status = false;
+			this.turnOn = function () {
+				this.status = true;
+				document.getElementById("status").innerHTML = "Lamp lighting";
+
+			}
+			this.turnOff = function () {
+				this.status = false;
+				document.getElementById("status").innerHTML = "Lamp not light";
+			}
+		}
+		function SwitchButton () {
+			this.status = false;
+			let controlLamp = lamp;
+			this.switchOn = function () {
+				this.status = true;
+				controlLamp.turnOn();
+			}
+			this.switchOff = function () {
+				this.status = false;
+				controlLamp.turnOff();	
+			}
+			this.connectToLamp = function (lamp) {
+				controlLamp = lamp;
+			}
+		}
+		let lamp = new Lamp();
+		let button = new SwitchButton();
+		button.connectToLamp(lamp);
+		button.switchOn();
+		// button.switchOff();
+	</script>
+</body>
+</html>
